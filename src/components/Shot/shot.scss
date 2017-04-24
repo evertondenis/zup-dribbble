@@ -1,0 +1,51 @@
+$white: #FFF;
+$green: #00A699;
+
+.single {
+  .go-back {
+    margin: 20px 0;
+  }
+
+  .row-top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: initial;
+    justify-content: flex-start;
+    align-content: center;
+  }
+
+  .descriptions {
+    padding-top: 45px;
+    padding-left: 15px;
+    max-width: 320px;
+
+    p {
+      font-weight: normal;
+      margin: 10px 0 0;
+    }
+
+    span {
+      padding: 2px 5px;
+      font-size: 1rem;
+      color: $green;
+    }
+
+    .tags {
+      span {
+        float: left;
+        padding: 2px 5px;
+        font-size: 1rem;
+        color: $green;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .single {
+    img {
+      width: 100%;
+    }
+  }
+}

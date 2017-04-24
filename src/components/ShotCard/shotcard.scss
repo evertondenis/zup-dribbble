@@ -1,0 +1,53 @@
+$white: #FFF;
+$green: #00A699;
+
+.shot {
+  flex-grow: 1;
+  margin: 10px 0 20px;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+
+  img {
+    outline: $green solid 5px;
+    outline-offset: -5px;
+    transition: all .2s linear;
+
+    &:hover {
+      outline: $green solid 1px;
+      outline-offset: -1px;
+      transition: all .2s linear;
+    }
+  }
+}
+
+a {
+  font-size: 0.8rem;
+  color: $white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .2s linear;
+
+  &:hover {
+    color: $green;
+    transition: all .2s linear;
+  }
+  
+  span {
+    display: inline-flex;
+    padding: 5px;
+    margin-bottom: 5px;
+    max-width: 200px;
+
+  }
+}
+
+@media screen and (max-width: 800) {
+  figure {
+    img {
+      width: 100%;
+    }
+  }
+}

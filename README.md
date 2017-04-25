@@ -1,7 +1,7 @@
 Zup Dribbble
 =====================
 
-Integration test with Dribble API Rest.
+Integration test with Dribbble API Rest.
 
 Stacks
 ========================

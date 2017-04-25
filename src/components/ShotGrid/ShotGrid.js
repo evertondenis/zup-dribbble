@@ -9,16 +9,25 @@ class ShotGrid extends Component {
     super()
     this.state = {
       shots: [],
-      sizeImage: '',
-      isFetching: true
+      sizeImage: 'teaser',
+      isFetching: true,
+      page: 1
     }
 
     this.handleSearch = this.handleSearch.bind(this)
+    this.loadMore = this.loadMore.bind(this)
+  }
 
-    dribbbleApi.get(`shots/`).then((result) => {
+  componentDidMount () {
+    this.updateShots()
+  }
+
+  updateShots () {
+    dribbbleApi.get(`shots/?page${this.state.page}`).then((result) => {
+      let data = this.state.shots
+
       this.setState({
-        shots: result.data,
-        sizeImage: 'teaser',
+        shots: data.concat(result.data),
         isFetching: false
       })
     })
@@ -57,6 +66,15 @@ class ShotGrid extends Component {
     }
   }
 
+  loadMore () {
+    this.setState({
+      isFetching: true,
+      page: ++this.state.page
+    })
+
+    this.updateShots()
+  }
+
   render () {
     return <AppContent
       handleSearch={this.handleSearch}
@@ -65,6 +83,7 @@ class ShotGrid extends Component {
       sizeImage={this.state.sizeImage}
       setSmall={this.updateShotsImages('teaser')}
       setLarge={this.updateShotsImages('normal')}
+      loadMore={this.loadMore}
     />
   }
 }

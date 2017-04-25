@@ -17,4 +17,4 @@ class DribbbleApi {
   }
 }
 
-export let dribbbleApi = new DribbbleApi()
+export const dribbbleApi = new DribbbleApi()
